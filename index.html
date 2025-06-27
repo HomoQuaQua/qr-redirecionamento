@@ -1,0 +1,25 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecionando...</title>
+  <script>
+    window.onload = function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const codigo = urlParams.get('codigo');
+
+      if (codigo) {
+        const destino = `https://app.sefa.pa.gov.br/homologacao-credito-api/api/extranet/public/utilizacao-credito/visualizacao/pdf/${codigo}`;
+        window.location.href = destino;
+      } else {
+        document.body.innerHTML = "<h2 style='color:red;'>Erro: Código não informado.</h2>";
+      }
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecionando para o documento...</p>
+</body>
+</html>
